@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Codepad (Working Title)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="EN" />
+        <meta name="keywords" content="Codepad (Working Title)" />
+        <style type="text/css">
+            html, body {
+                margin:0;
+                padding:0;
+                border:0px;
+                height:100%;
+                width:100%;
+                overflow:auto;
+                font-family:Perpetua, Georgia, Consolas;
+                background-color: #fefeff;
+            }
+            .item {
+                overflow: hidden;
+                position:relative;
+                height: 100px;
+                width: 180px;
+                padding-top:3%;
+                text-align:center;
+                float:left;
+            }
+            .icon {
+                height: 60%;
+                width: 40%;
+                position: absolute;
+                top:10%;
+                left:30%;
+            }
+            .text {
+                width: 100%;
+                position: absolute;
+                top:70%;
+                text-align:center;
+                white-space:pre-wrap;
+            }
+        </style>
+        <script type="text/JavaScript">
+            arr = [
+            {{for item in files:}}
+                ['{{=item.bash}}', '{{=item.path}}', '{{=item.name}}'],
+            {{pass}}
+            ]
+            function display() {
+                for(i=0; i<arr.length; i++) {
+                    document.getElementById("display").innerHTML += '<div class="item" id="'+arr[i][0]+'"><a href="/init/default/index'+arr[i][1]+'/'+arr[i][2]+'"><img class="icon" src="'+get_icon(arr[i][2])+'" /><div class="text">'+arr[i][2]+'</div></a></div>'
+                }
+            }
+            function get_icon(obj){
+                return "/init/static/favicon.png";
+            }
+        </script>
+    </head>
+    <body onload="JavaScript:display();" onmousedown="JavaScript:on_click();">
+        <div id="content">
+            <h1>{{=file.path+"/"+file.name}}</h1>
+            <div class="display" id="display">
+                <div class="item">
+                    <form action="/init/default/upload_handler" method="POST" enctype="multipart/form-data">
+                        <input id="fileupload" type="file" name="files[]" multiple />
+                        <input type="hidden" name="home" value="{{=file.bash}}" />
+                        <input type="submit" />
+                    </form>
+                    <form action="/init/default/new" method="POST" enctype="multipart/form-data">
+                        <input type="text" name="name" />
+                        <input type="checkbox" name="is_dir" value="1" />Directory
+                        <input type="hidden" name="home" value="{{=file.bash}}" />
+                        <input type="submit" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+        <script src="/init/static/js/jquery.iframe-transport.js"></script>
+        <script src="/init/static/js/jquery.fileupload.js"></script>
+        <script>
+        /*$(function () {
+            $('#fileupload').fileupload({
+                dataType: 'json',
+                url: '/upload_handler',
+                done: function (e, data) {
+                    $.each(data.result, function (index, file) {
+                        $('<p/>').text(file.name).appendTo('#display');
+                    });
+                }
+            });
+        });*/
+        </script>-->
+    </body>
+</html>

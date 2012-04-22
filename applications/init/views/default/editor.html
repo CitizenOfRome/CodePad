@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Codepad (Working Title)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="EN" />
+        <meta name="keywords" content="Codepad (Working Title)" />
+        <link rel="stylesheet" href="/init/static/css/main.css" />
+        <link rel="stylesheet" href="/init/static/css/codemirror.css" />
+        <link rel="stylesheet" href="/init/static/css/default.css" />
+        <script type="text/JavaScript" src="/init/static/js/preLoad.js"></script>
+    </head>
+    <body>
+        <form id="frm" action="javascript:window.location='/?fileID='+document.getElementById('fname').value;">
+            <input type="hidden" id="{{=session.user}}" />
+            <input id="submit" type="submit" value="GO" style="opacity:0;filter:alpha(opacity=0);position:absolute;bottom:95%;right:25%;z-index:16;" />
+            <input type="text" id="fname" onclick="JavaScript:this.select();set_opacity(document.getElementById('submit'), 0.8);" onfocus="javascript:set_opacity(this, 1);this.hasFocus=true;" onmouseover="javascript:set_opacity(this, 1);set_opacity(document.getElementById('submit'), 0.8);" onblur="javascript:set_opacity(this, 0.4);this.hasFocus=false;set_opacity(document.getElementById('submit'), 0);" onmouseout="javascript:if(!this.hasFocus) { set_opacity(this, 0.4);set_opacity(document.getElementById('submit'), 0); }" value="{{=file.name}}" onchange="javascript:window.location='/?fileID='+this.value;" autocorrect="off" disabled="disabled" />
+            <div class="area" >
+                <textarea id="{{=file.bash}}" class="box" >{{=file.text}}</textarea> 
+            </div>
+        </form>
+        <script src="/init/static/js/mimes.js"></script>
+        <script src="/init/static/js/codemirror-compressed.js"></script>
+        <script src="/init/static/js/mobwrite_compressed_form.js"></script>
+        <script src="/init/static/js/mobwrite_codemirror.js"></script>
+        <script type="text/javascript">
+            boxID = "{{=file.bash}}";
+            document.title = window.title = "{{=file.name}} on Codepad (Working Title)";
+            var box = document.getElementById(boxID);
+            var myCodeMirror = CodeMirror.fromTextArea(box, {
+                                  value : "",
+                                  mode : get_mime_mode("{{=file.name}}"),
+                                  theme : "default",
+                                  lineNumbers : true,
+                                  matchBrackets : true,
+                                  gutter : true,
+                                  fixedGutter : true,
+                                  tabMode  : 'shift',
+                                  indentUnit   : 4,
+                                  lineWrap  :   true
+                                });
+            myCodeMirror.id = boxID;
+            editor = myCodeMirror.getScrollerElement();
+            wrapper = myCodeMirror.getWrapperElement();
+            editor.style.height = "100%";
+            editor.style.width = "100%";
+            wrapper.style.height = "100%";
+            wrapper.style.width = "100%";
+            editor.style.lineHeight = "161%";
+            editor.style.font = "Perpetua, Georgia, Courier New, Consolas";
+            editor.style.fontSize = "120%";
+            myCodeMirror.refresh();
+            myCodeMirror.focus();
+            mobwrite.syncGateway = '/init/mobwrite';
+            //mobwrite.syncGateway = '/mobwrite/scripts/q.py';
+            mobwrite.share(myCodeMirror);
+            mobwrite.debug = true;
+        </script>
+    </body>
+</html>

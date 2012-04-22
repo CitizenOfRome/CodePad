@@ -1,0 +1,7 @@
+{% extends "login.html" %}
+{% block title %}Login Failed{% endblock %}
+{% block body %}
+  <h1>Login Failed</h1>
+  <p>An unexpected error was encountered when logging you in. Do you want to try again?</p>
+  {{ block.super }}
+{% endblock %}
