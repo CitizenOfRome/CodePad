@@ -36,9 +36,10 @@ from google.appengine.ext import db
 from google.appengine import runtime
 from google.appengine.api import memcache
 
-sys.path.insert(0, "lib")
+#sys.path.insert(1, "lib")
+sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 import mobwrite_core
-del sys.path[0]
+#del sys.path[1]
 
 
 class TextObj(mobwrite_core.TextObj, db.Model):

@@ -1,48 +1,51 @@
-html, body, #box {
-    margin:0;
-    padding:0;
-    border:0px;
-    height:100%;
-    width:100%;
-    overflow:hidden;
-    font-family:Georgia, Consolas;
+html,
+body,
+#box {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: Consolas;
     background-color: #fffffb;
 }
 .area {
-    height:94%;
-    width:100%;
-    overflow:auto;
-    position:absolute;
-    bottom:0%;
-    right:0%;
-    border:none;
+    overflow: auto;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    top: 6%;
+    left: 0%;
+    border: none;
 }
 .hidden {
-    height:0%;
-    width:0%;
-    overflow:hidden;
-    visibility:hidden;
-    z-index:-1000;
+    height: 0%;
+    width: 0%;
+    overflow: hidden;
+    visibility: hidden;
+    z-index: -1000;
 }
 .box {
-    height:100%;
-    width:100%;
-    font-family:Georgia, Consolas;
-    font-size:160%;
-    background-color:white;
+    height: 100%;
+    width: 100%;
+    font-family: Georgia, Consolas;
+    font-size: 160%;
+    background-color: white;
 }
 #fname {
-    position:absolute;
-    bottom:94%;
-    right:0%;
-    z-index:15;
-    opacity:0.4;    filter:alpha(opacity=40);
-    font-size:160%;
-    width:100%;
-    height:5%;
-    text-align:center;
-    background-color:FloralWhite;
-    border:SteelBlue solid;
-    border-right:none;
-    border-left:none;
+    position: absolute;
+    bottom: 94%;
+    right: 0%;
+    z-index: 15;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    font-size: 160%;
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    background-color: GhostWhite;
+    border: Black solid;
+    border-right: none;
+    border-left: none;
 }

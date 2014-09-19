@@ -1,7 +1,8 @@
 application: notepyd
-version: 4
-runtime: python
+version: 6
+runtime: python27
 api_version: 1
+threadsafe: 0
 
 handlers:
 - url: /scripts
