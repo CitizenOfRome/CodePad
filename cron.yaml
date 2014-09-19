@@ -1,0 +1,4 @@
+cron:
+- description: Cleanup task
+  url: /MobWrite/scripts/q.py?clean=1
+  schedule: every 24 hours
