@@ -7,7 +7,7 @@ LICENCE: http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 Got anything to say? [Open an issue](https://github.com/sathvikp/CodePad/issues) or write to us at codepad@doersguild.com
 
-The code here is a [MobWrite](https://code.google.com/p/google-mobwrite/) + [CodeMirror](http://codemirror.net/) + [GAE Python 2.7](https://developers.google.com/appengine/docs/python/) powered collaborative paste-bin demonstation.
+The code here is a [MobWrite](https://code.google.com/p/google-mobwrite/) + [CodeMirror](http://codemirror.net/) + [GAE Python 2.7](https://developers.google.com/appengine/docs/python/) powered collaborative paste-bin demonstration.
 
 We could easily repurpose it for any online collaboration needs including but not limited to pair-programming, collaborative-editing/ideation, programmer whiteboard interviews, interactive tutorials, etc.
 
