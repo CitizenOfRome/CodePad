@@ -9,4 +9,4 @@ Got something to say? Speak out at https://groups.google.com/forum/#!forum/codep
 
 
 ---------------------------------------
-Like our [work](http://doersguild.com)? [Get in touch!](mailto:mail@doersguild.com)
+Like our [work](http://thestartupengine.net)? [Get in touch!](mailto:mail@thestartupengine.net)
